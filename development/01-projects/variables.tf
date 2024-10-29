@@ -25,6 +25,10 @@ variable "folder_shared_id" {
   description = "The folder shared's ID"
   type = string
 }
+variable "lab_folder_shared_id" {
+  description = "The folder shared's ID"
+  type = string
+}
 variable "avantia_host_project_id" {
   description = "The ID of the host project ID"
   type = string
