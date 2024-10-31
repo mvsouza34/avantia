@@ -707,3 +707,205 @@ variable "shrd_pub_stg_gke_us_ce1_c1_secondary_range_pods" {
   description = "Pods CIDR"
   type = string
 }
+
+
+########################################################################## END OF DEV and STG VARS   ########################################################################
+########################################################################## START OF DEV and STG VARS ########################################################################
+
+################# Environment #################
+variable "prd_env" {
+  description = "Production Environment"
+  type = string
+}
+
+################# Subnet's names #################
+variable "subnet_prd_gke_box_pri_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_srvcs_pri_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_ceb_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_ceb_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_ceb_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_ceb_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_weava_pub_ceb_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_cec_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_cec_name" {
+  description = "The subnet's name"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_cec_name" {
+  description = "The subnet's name"
+  type = string
+}
+
+################# Subnet's CIDRs #################
+variable "subnet_prd_gke_box_pri_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_srvcs_pri_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_ceb_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_ceb_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_ceb_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_ceb_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_weava_pub_ceb_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_cec_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_cec_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_cec_name_cidr" {
+  description = "The subnet 01 is cidr"
+  type = string
+}
+################# GKE's services and pods ranges #################
+variable "subnet_prd_gke_box_pri_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_name_cidr_pods_range" {
+  description = "Pod's range"
+}
+variable "subnet_prd_gke_weava_pri_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_name_cidr_pods_range" {
+  description = "Pod's range"
+}
+variable "subnet_prd_gke_classifiers_pri_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_name_cidr_pods_range" {
+  description = "Pod's range"
+}
+variable "subnet_prd_gke_srvcs_pri_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_srvcs_pri_name_cidr_pods_range" {
+  description = "Pod's range"
+}
+variable "subnet_prd_gke_box_pri_ceb_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_ceb_name_cidr_pods_range" {
+  description = "Pod's range"
+}
+variable "subnet_prd_gke_classifiers_pri_ceb_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_ceb_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_ceb_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_ceb_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_ceb_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_weava_pri_ceb_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
+variable "subnet_prd_gke_weava_pub_ceb_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_weava_pub_ceb_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_cec_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pri_cec_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_cec_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_classifiers_pri_cec_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_cec_name_cidr_services_range" {
+  description = "Services's range"
+  type = string
+}
+variable "subnet_prd_gke_box_pub_cec_name_cidr_pods_range" {
+  description = "Pod's range"
+  type = string
+}
