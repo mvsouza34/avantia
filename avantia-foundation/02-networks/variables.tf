@@ -1083,3 +1083,63 @@ variable "subnet_prd_pri_nat_gtw_name_cidr" {
   description = "Pods CIDR"
   type = string
 }
+
+################# PROD NAT GATEWAY SETTINGS FROM US CENTRAL1 B #################
+
+################# Subnet's names #################
+variable "subnet_prd_pub_nat_gtw_name_ceb" {
+  description = "Subnet's name"
+  type = string
+}
+
+
+################# Subnet's CIDRs #################
+variable "subnet_prd_pub_nat_gtw_name_ceb_cidr" {
+  description = "Services CIDR"
+  type = string
+}
+
+################# PROD NAT GATEWAY SETTINGS FROM US CENTRAL1 C #################
+
+################# Subnet's names #################
+variable "subnet_prd_pri_end_svc_cec_name" {
+  description = "Subnet's name"
+  type = string
+}
+variable "subnet_prd_pub_end_svc_cec_name" {
+  description = "Subnet's name"
+  type = string
+}
+
+################# Subnet's CIDRs #################
+variable "subnet_prd_pri_end_svc_cec_name_cidr" {
+  description = "Services CIDR"
+  type = string
+}
+variable "subnet_prd_pub_end_svc_cec_name_cidr" {
+  description = "Pods CIDR"
+  type = string
+}
+
+
+################# PROD VPN PEER SERVICES AND NAT GATEWAY SETTINGS FROM US CENTRAL1 C #################
+
+################# Subnet's names #################
+variable "subnet_prd_pub_vpn_peer_srvcs_cec_name" {
+  description = "Subnet's name"
+  type = string
+}
+variable "subnet_prd_pub_nat_gtw_name_cec" {
+  description = "Subnet's name"
+  type = string
+}
+
+################# Subnet's CIDRs #################
+variable "subnet_prd_pub_vpn_peer_srvcs_cec_name_cidr" {
+  description = "Services CIDR"
+  type = string
+}
+variable "subnet_prd_pub_nat_gtw_name_cec_cidr" {
+  description = "Pods CIDR"
+  type = string
+}
