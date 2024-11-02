@@ -785,9 +785,6 @@ output "shared_vpc_subnet_avantia_pub_nat_gtw_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_pub_nat_gtw_cec.self_link
 }
 
-
-
-
 ######################################################
 # Create Output Files to reuse generated information #
 ######################################################
