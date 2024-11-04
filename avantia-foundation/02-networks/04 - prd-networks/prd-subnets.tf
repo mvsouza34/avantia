@@ -26,7 +26,6 @@ output "shared_vpc_subnet_avantia_gke_box_pri_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_box_pri_cea.self_link
 }
 
-
 # Create a private google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pri_cea" {
   name          = var.subnet_prd_gke_weava_pri_name
@@ -55,7 +54,6 @@ output "shared_vpc_subnet_avantia_gke_weava_pri_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_weava_pri_cea.self_link
 }
 
-
 # Create a private google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_classifiers_pri_cea" {
   name          = var.subnet_prd_gke_classifiers_pri_name
@@ -83,7 +81,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_classifiers_
 output "shared_vpc_subnet_avantia_gke_classifiers_pri_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_classifiers_pri_cea.self_link
 }
-
 
 # Create a private google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_srvcs_pri_cea" {
@@ -144,7 +141,6 @@ output "shared_vpc_subnet_avantia_gke_box_pri_ceb_ceb" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_box_pri_ceb.self_link
 }
 
-
 # Create a private google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_classifiers_pri_ceb" {
   name          = var.subnet_prd_gke_classifiers_pri_ceb_name
@@ -172,7 +168,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_classifiers_
 output "shared_vpc_subnet_avantia_gke_classifiers_pri_ceb_ceb" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_classifiers_pri_ceb.self_link
 }
-
 
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_box_pub_ceb" {
@@ -202,7 +197,6 @@ output "shared_vpc_subnet_avantia_gke_box_pub_ceb_ceb" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_box_pub_ceb.self_link
 }
 
-
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pri_ceb" {
   name          = var.subnet_prd_gke_weava_pri_ceb_name
@@ -230,7 +224,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pri_ce
 output "shared_vpc_subnet_avantia_gke_weava_pri_ceb_ceb" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_weava_pri_ceb.self_link
 }
-
 
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pub_ceb" {
@@ -262,7 +255,6 @@ output "shared_vpc_subnet_avantia_gke_weava_pub_ceb_ceb" {
 
 ############################ END OF SUBNETS FOR USE OF GKE FROM US CENTRAL1-B ############################
 ############################ START OF SUBNETS FOR USE OF GKE FROM US CENTRAL1-C ##########################
-
 
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_box_pri_cec" {
@@ -320,7 +312,6 @@ output "shared_vpc_subnet_avantia_gke_classifiers_pri_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_classifiers_pri_cec.self_link
 }
 
-
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_box_pub_cec" {
   name          = var.subnet_prd_gke_box_pub_cec_name
@@ -377,7 +368,6 @@ output "shared_vpc_subnet_avantia_gke_weava_pri_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_weava_pri_cec.self_link
 }
 
-
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pri_02_cec" {
   name          = var.subnet_prd_gke_weava_pri_02_cec_name
@@ -405,7 +395,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pri_02
 output "shared_vpc_subnet_avantia_gke_weava_pri_02_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gke_weava_pri_02_cec.self_link
 }
-
 
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gke_weava_pub_cec" {
@@ -456,7 +445,6 @@ output "shared_vpc_subnet_avantia_gce_pri_cea_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gce_pri_cea.self_link
 }
 
-
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gce_pub_cea" {
   name          = var.subnet_prd_gce_pub_cea_name
@@ -496,7 +484,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gce_pri_ceb" {
 output "shared_vpc_subnet_avantia_gce_pri_ceb_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gce_pri_ceb.self_link
 }
-
 
 # Create a public google vpc subnet
 resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gce_pub_ceb" {
@@ -556,7 +543,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_gce_pub_cec" {
 output "shared_vpc_subnet_avantia_gce_pub_cec_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_gce_pub_cec.self_link
 }
-
 
 ################# PROD ENDPOINTS AND SERVICES SETTINGS FROM US CENTRAL1 A #################
 
@@ -678,8 +664,6 @@ output "shared_vpc_subnet_avantia_pub_end_svc_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_pub_end_svc_cec.self_link
 }
 
-
-
 ################# PROD VPN PEER SERVICES SETTINGS FROM US CENTRAL1 A #################
 
 # Create a public google vpc subnet
@@ -741,7 +725,6 @@ output "shared_vpc_subnet_avantia_pub_nat_gtw_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_pub_nat_gtw_ceb.self_link
 }
 
-
 ################# PROD VPN PEER SERVICES AND NAT GATEWAY SETTINGS FROM US CENTRAL1 C #################
 
 # Create a public google vpc subnet
@@ -762,7 +745,6 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_pub_vpn_peer_srv
 output "shared_vpc_subnet_avantia_pub_vpn_peer_srvcs_cec_cea" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_pub_vpn_peer_srvcs_cec.self_link
 }
-
 
 ################# PROD NAT GATEWAY SETTINGS FROM US CENTRAL1 C #################
 
