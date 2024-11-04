@@ -32,10 +32,9 @@ output "avantia-prd-vpc-network" {
 ########################################################
 resource "local_file" "prd_export_network" {
   content = jsonencode({
-    # avantia_vpc_self_link = google_compute_network.vpc_network_avantia_dev.self_link
-    # avantia_vpc_id        = google_compute_network.vpc_network_avantia_dev.id
     avantia_prd_vpc_self_link = google_compute_network.vpc_network_avantia_prd.self_link
     avantia_prd_vpc_id        = google_compute_network.vpc_network_avantia_prd.id
   })
   filename = "../../local/prod_shared_vpc.json"
+  
 }

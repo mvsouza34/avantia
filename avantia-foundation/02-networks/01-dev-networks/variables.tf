@@ -17,6 +17,18 @@ variable "prd_env" {
   description = "Env variable"
   type = string
 }
+variable "lab_vpc_id" {
+  description = "Lab VPC ID"
+  type = string
+}
+variable "host_project_id" {
+  description = "Host project ID"
+  type = string
+}
+variable "service_vpc_id" {
+  description = "Prod VPC ID"
+  type = string
+}
 
 ##############################################
 # DEV GKE Network's settings - US CENTRAL1 A #

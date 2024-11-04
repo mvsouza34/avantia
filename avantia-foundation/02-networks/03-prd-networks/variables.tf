@@ -15,10 +15,31 @@ variable "region_id" {
 }
 
 ######################
-# Project's settings #
+# Folder's settings #
 ######################
 variable "folder_shared_id" {
   description = "The folder shared's ID"
+  type = string
+}
+
+######################
+# Project's settings #
+######################
+variable "host_project_id" {
+  description = "The host project ID"
+  type = string
+}
+
+variable "host_vpc_id" {
+  description = "Host VPC ID"
+  type = string
+}
+
+################
+# Network's ID #
+################
+variable "prod_vpc_id" {
+  description = "Production VPC ID"
   type = string
 }
 
