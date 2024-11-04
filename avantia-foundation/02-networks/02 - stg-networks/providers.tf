@@ -13,9 +13,10 @@ terraform {
 
 locals {
   # Projects
-  avantia_host_project   = jsondecode(file("../local/avantia_host_project.json"))
-  avantia_service_project   = jsondecode(file("../local/avantia_service_project.json"))
-  avantia_prd_service_project = jsondecode(file("../local/avantia_prd_service_project.json"))
+  avantia_host_project        = jsondecode(file("../../local/avantia_host_project.json"))
+  avantia_service_project     = jsondecode(file("../../local/avantia_service_project.json"))
+  avantia_prd_service_project = jsondecode(file("../../local/avantia_prd_service_project.json"))
+  lab_shared_vpc              = jsondecode(file("../../local/lab_shared_vpc.json"))
   # output_nat_ip          = jsondecode(file("../local/output_nat_ip.json"))
 }
 

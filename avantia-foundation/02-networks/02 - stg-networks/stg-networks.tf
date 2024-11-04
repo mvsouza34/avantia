@@ -12,7 +12,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri_stg_gke_us_ce1_a1
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
 
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.weava_pri_stg_gke_us_ce1_a1_secondary_range_services
@@ -23,7 +23,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri_stg_gke_us_ce1_a1
     ip_cidr_range = var.weava_pri_stg_gke_us_ce1_a1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_weava_pri_stg_gke_us_ce1_a1" {
   value = google_compute_subnetwork.subnet_avantia_weava_pri_stg_gke_us_ce1_a1.self_link
@@ -39,7 +39,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pub_stg_gke_us_ce1_a1
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.weava_pub_stg_gke_us_ce1_a1_secondary_range_services
@@ -50,7 +50,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pub_stg_gke_us_ce1_a1
     ip_cidr_range = var.weava_pub_stg_gke_us_ce1_a1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_weava_pub_stg_gke_us_ce1_a1" {
   value = google_compute_subnetwork.subnet_avantia_weava_pub_stg_gke_us_ce1_a1.self_link
@@ -67,7 +67,7 @@ resource "google_compute_subnetwork" "subnet_avantia_avanuv_pri_stg_gke_us_ce1_a
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.avanuv_pri_stg_gke_us_ce1_a1_secondary_range_services
@@ -78,7 +78,7 @@ resource "google_compute_subnetwork" "subnet_avantia_avanuv_pri_stg_gke_us_ce1_a
     ip_cidr_range = var.avanuv_pri_stg_gke_us_ce1_a1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_applicationstg_gke_us_ce1_a1" {
   value = google_compute_subnetwork.subnet_avantia_avanuv_pri_stg_gke_us_ce1_a1.self_link
@@ -94,7 +94,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.avanuv_pub_stg_gke_us_ce1_a1_secondary_range_services
@@ -105,7 +105,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce
     ip_cidr_range = var.avanuv_pub_stg_gke_us_ce1_a1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce1_a1" {
   value = google_compute_subnetwork.shared_vpc_subnet_avanuv_pub_stg_gke_us_ce1_a1.name
@@ -123,7 +123,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_shrd_pri_stg_gke
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.shrd_pri_stg_gke_us_ce1_a1_secondary_range_services
@@ -134,7 +134,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_shrd_pri_stg_gke
     ip_cidr_range = var.shrd_pri_stg_gke_us_ce1_a1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_shrd_pri_stg_gke_us_ce1_a1" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_shrd_pri_stg_gke_us_ce1_a1.self_link
@@ -150,7 +150,7 @@ resource "google_compute_subnetwork" "gke_vpc_subnet_shrd_pub_stg_gke_us_ce1_a1"
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.shrd_pub_stg_gke_us_ce1_a1_secondary_range_services
@@ -214,7 +214,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri_stg_gke_us_ce1_b1
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
 
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.weava_pri_stg_gke_us_ce1_b1_secondary_range_services
@@ -225,7 +225,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri_stg_gke_us_ce1_b1
     ip_cidr_range = var.weava_pri_stg_gke_us_ce1_b1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_weava_pri_stg_gke_us_ce1_b1" {
   value = google_compute_subnetwork.subnet_avantia_weava_pri_stg_gke_us_ce1_b1.self_link
@@ -241,7 +241,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pub_stg_gke_us_ce1_b1
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.weava_pub_stg_gke_us_ce1_b1_secondary_range_services
@@ -252,7 +252,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pub_stg_gke_us_ce1_b1
     ip_cidr_range = var.weava_pub_stg_gke_us_ce1_b1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_weava_pub_stg_gke_us_ce1_b1" {
   value = google_compute_subnetwork.subnet_avantia_weava_pub_stg_gke_us_ce1_b1.self_link
@@ -269,7 +269,7 @@ resource "google_compute_subnetwork" "subnet_avantia_avanuv_pri_stg_gke_us_ce1_b
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.avanuv_pri_stg_gke_us_ce1_b1_secondary_range_services
@@ -280,7 +280,7 @@ resource "google_compute_subnetwork" "subnet_avantia_avanuv_pri_stg_gke_us_ce1_b
     ip_cidr_range = var.avanuv_pri_stg_gke_us_ce1_b1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_applicationstg_gke_us_ce1_b1" {
   value = google_compute_subnetwork.subnet_avantia_avanuv_pri_stg_gke_us_ce1_b1.self_link
@@ -296,7 +296,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.avanuv_pub_stg_gke_us_ce1_b1_secondary_range_services
@@ -307,7 +307,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce
     ip_cidr_range = var.avanuv_pub_stg_gke_us_ce1_b1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce1_b1" {
   value = google_compute_subnetwork.shared_vpc_subnet_avanuv_pub_stg_gke_us_ce1_b1.name
@@ -324,7 +324,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_shrd_pri_stg_gke
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.shrd_pri_stg_gke_us_ce1_b1_secondary_range_services
@@ -335,7 +335,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_shrd_pri_stg_gke
     ip_cidr_range = var.shrd_pri_stg_gke_us_ce1_b1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_shrd_pri_stg_gke_us_ce1_b1" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_shrd_pri_stg_gke_us_ce1_b1.self_link
@@ -351,7 +351,7 @@ resource "google_compute_subnetwork" "gke_vpc_subnet_shrd_pub_stg_gke_us_ce1_b1"
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.shrd_pub_stg_gke_us_ce1_b1_secondary_range_services
@@ -415,7 +415,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri_stg_gke_us_ce1_c1
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
 
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.weava_pri_stg_gke_us_ce1_c1_secondary_range_services
@@ -426,7 +426,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri_stg_gke_us_ce1_c1
     ip_cidr_range = var.weava_pri_stg_gke_us_ce1_c1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_weava_pri_stg_gke_us_ce1_c1" {
   value = google_compute_subnetwork.subnet_avantia_weava_pri_stg_gke_us_ce1_c1.self_link
@@ -442,7 +442,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pub_stg_gke_us_ce1_c1
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.weava_pub_stg_gke_us_ce1_c1_secondary_range_services
@@ -453,7 +453,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pub_stg_gke_us_ce1_c1
     ip_cidr_range = var.weava_pub_stg_gke_us_ce1_c1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_weava_pub_stg_gke_us_ce1_c1" {
   value = google_compute_subnetwork.subnet_avantia_weava_pub_stg_gke_us_ce1_c1.self_link
@@ -470,7 +470,7 @@ resource "google_compute_subnetwork" "subnet_avantia_avanuv_pri_stg_gke_us_ce1_c
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.avanuv_pri_stg_gke_us_ce1_c1_secondary_range_services
@@ -481,7 +481,7 @@ resource "google_compute_subnetwork" "subnet_avantia_avanuv_pri_stg_gke_us_ce1_c
     ip_cidr_range = var.avanuv_pri_stg_gke_us_ce1_c1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "subnet_avantia_applicationstg_gke_us_ce1_c1" {
   value = google_compute_subnetwork.subnet_avantia_avanuv_pri_stg_gke_us_ce1_c1.self_link
@@ -497,7 +497,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.avanuv_pub_stg_gke_us_ce1_c1_secondary_range_services
@@ -508,7 +508,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce
     ip_cidr_range = var.avanuv_pub_stg_gke_us_ce1_c1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avanuv_pub_stg_gke_us_ce1_c1" {
   value = google_compute_subnetwork.shared_vpc_subnet_avanuv_pub_stg_gke_us_ce1_c1.name
@@ -525,7 +525,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_shrd_pri_stg_gke
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.shrd_pri_stg_gke_us_ce1_c1_secondary_range_services
@@ -536,7 +536,7 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_shrd_pri_stg_gke
     ip_cidr_range = var.shrd_pri_stg_gke_us_ce1_c1_secondary_range_pods
   }
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_shrd_pri_stg_gke_us_ce1_c1" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_shrd_pri_stg_gke_us_ce1_c1.self_link
@@ -552,7 +552,7 @@ resource "google_compute_subnetwork" "gke_vpc_subnet_shrd_pub_stg_gke_us_ce1_c1"
   stack_type       = "IPV4_ONLY"
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = var.shrd_pub_stg_gke_us_ce1_c1_secondary_range_services
@@ -615,9 +615,9 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_gce_pri_cea"
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_gce_pri_cea_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pri_cea.self_link
@@ -634,16 +634,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_gce_pub_cea"
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_gce_pub_cea_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pub_cea.self_link
 }
 
 resource "local_file" "export_stg_gce_subnets_cea" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_gce_pri_cea_name     = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pri_cea.self_link
     subnet_stg_gce_pub_cea_name     = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pub_cea.self_link
   })
@@ -663,9 +663,9 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_gce_pri_ceb"
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_gce_pri_ceb_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pri_ceb.self_link
@@ -682,16 +682,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_gce_pub_ceb"
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_gce_pub_ceb_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pub_ceb.self_link
 }
 
 resource "local_file" "export_stg_gce_subnets_ceb" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_gce_pri_ceb_name       = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pri_ceb.self_link
     subnet_stg_gce_pub_ceb_name       = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pub_ceb.self_link
   })
@@ -711,9 +711,9 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_gce_pri_cec"
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_gce_pri_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pri_cec.self_link
@@ -730,16 +730,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_gce_pub_cec"
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_gce_pub_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pub_cec.self_link
 }
 
 resource "local_file" "export_stg_gce_subnets_cec" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_gce_pri_cec_name       = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pri_cec.self_link
     subnet_stg_gce_pub_cec_name       = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_gce_pub_cec.self_link
   })
@@ -759,9 +759,9 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_end_svc_pri_
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_end_svc_pri_cea_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pri_cea.self_link
@@ -778,16 +778,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_end_svc_pub_
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_end_svc_pub_cea_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pub_cea.self_link
 }
 
 resource "local_file" "export_stg_end_svc_subnets_cea" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_end_svc_pri_cea_name     = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pri_cea.self_link
     subnet_stg_end_svc_pub_cea_name     = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pub_cea.self_link
   })
@@ -808,9 +808,9 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_end_svc_pri_
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_end_svc_pri_ceb_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pri_ceb.self_link
@@ -828,16 +828,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_end_svc_pub_
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_end_svc_pub_ceb_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pub_ceb.self_link
 }
 
 resource "local_file" "export_stg_end_svc_subnets_ceb" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_end_svc_pri_ceb_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pri_ceb.self_link
     subnet_stg_end_svc_pub_ceb_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pub_ceb.self_link
   })
@@ -857,9 +857,9 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_end_svc_pri_
   private_ip_google_access = true
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_end_svc_pri_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pri_cec.self_link
@@ -877,16 +877,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_end_svc_pub_
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_end_svc_pub_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pub_cec.self_link
 }
 
 resource "local_file" "export_stg_end_svc_subnets_cec" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_end_svc_pri_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pri_cec.self_link
     subnet_stg_end_svc_pub_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_end_svc_pub_cec.self_link
   })
@@ -907,16 +907,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_vpn_peer_srv
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_cea_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_cea.self_link
 }
 
 resource "local_file" "export_stg_vpn_peer_srvcs_subnets_cea" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_vpn_peer_srvcs_pub_cea_name    = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_cea.self_link
   })
   filename = "../../local/stg_vpn_peer_srvcs_subnets_us_central1-a.json"
@@ -936,16 +936,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_vpn_peer_srv
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_ceb_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_ceb.self_link
 }
 
 resource "local_file" "export_stg_vpn_peer_srvcs_subnets_ceb" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_vpn_peer_srvcs_pub_ceb_name    = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_ceb.self_link
   })
   filename =  "../../local/stg_vpn_peer_srvcs_subnets_us_central1-b.json"
@@ -964,16 +964,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_vpn_peer_srv
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_cec.self_link
 }
 
 resource "local_file" "export_stg_vpn_peer_srvcs_subnets_cec" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_vpn_peer_srvcs_pub_cec_name    = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_vpn_peer_srvcs_pub_cec.self_link
   })
   filename = "../../local/stg_vpn_peer_srvcs_subnets_us_central1-c.json"
@@ -993,16 +993,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_nat_gtw_pub_
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_nat_gtw_pub_cea_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_nat_gtw_pub_cea.self_link
 }
 
 resource "local_file" "export_stg_nat_gtw_subnets_cea" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_nat_gtw_pub_cea_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_nat_gtw_pub_cea.self_link
   })
   filename = "../../local/stg_nat_gtw_subnets_us_central1-a.json"
@@ -1022,16 +1022,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_nat_gtw_pub_
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_nat_gtw_pub_ceb_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_nat_gtw_pub_ceb.self_link
 }
 
 resource "local_file" "export_stg_nat_gtw_subnets_ceb" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_nat_gtw_pub_ceb_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_nat_gtw_pub_ceb.self_link
   })
   filename = "../../local/stg_nat_gtw_subnets_us_central1-b.json"
@@ -1050,16 +1050,16 @@ resource "google_compute_subnetwork" "shared_vpc_subnet_avantia_stg_nat_gtw_pub_
   private_ip_google_access = false
   # ipv6_access_type = "INTERNAL" 
   # Change to "EXTERNAL" if creating an external loadbalancer
-  network = google_compute_network.vpc_network_avantia_dev.id
+  network = local.lab_shared_vpc.avantia_vpc_id
 
-  depends_on = [google_compute_network.vpc_network_avantia_dev]
+  # depends_on = [google_compute_network.vpc_network_avantia_dev]
 }
 output "shared_vpc_subnet_avantia_stg_nat_gtw_pub_cec_cec" {
   value = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_nat_gtw_pub_cec.self_link
 }
 
 resource "local_file" "export_stg_nat_gtw_subnets_cec" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_stg_nat_gtw_pub_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_stg_nat_gtw_pub_cec.self_link
   })
   filename = "../../local/stg_nat_gtw_subnets_us_central1-c.json"

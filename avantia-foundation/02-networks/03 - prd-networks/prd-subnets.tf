@@ -811,5 +811,5 @@ resource "local_file" "export_subnet_gke_box_pri_name" {
     subnet_prd_pub_nat_gtw_name_ceb         = google_compute_subnetwork.shared_vpc_subnet_avantia_pub_nat_gtw_ceb.self_link
 
   })
-  filename = "../local/prd_subnets_us_central1-a.json"
+  filename = "../../local/prd_subnets_us_central1-a.json"
 }

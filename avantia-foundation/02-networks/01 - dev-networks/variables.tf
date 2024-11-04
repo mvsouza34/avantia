@@ -6,11 +6,21 @@ variable "region_id" {
   type = string
 }
 
+######################
+# Environments's settings #
+######################
+variable "env" {
+  description = "Env variable"
+  type = string
+}
+variable "prd_env" {
+  description = "Env variable"
+  type = string
+}
+
 ##############################################
 # DEV GKE Network's settings - US CENTRAL1 A #
 ##############################################
-
-
 variable "subnet_gke_weava_pri_name" {
   description = "The subnet's name"
   type = string

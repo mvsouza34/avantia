@@ -194,7 +194,7 @@ resource "local_file" "export_subnet" {
     subnet_gke_shrd_pri_name_services_range   = google_compute_subnetwork.shared_vpc_subnet_avantia_shrd_pri.secondary_ip_range[0].range_name
     subnet_gke_shrd_pri_name_pod_range        = google_compute_subnetwork.shared_vpc_subnet_avantia_shrd_pri.secondary_ip_range[1].range_name
     subnet_gke_shrd_pub_name_services_range   = google_compute_subnetwork.gke_vpc_subnet_shrd_pub.secondary_ip_range[0].range_name
-    subnet_gke_shrd_pub_name_pod_range        = google_compute_subnetworkgke_vpc_subnet_shrd_pub.secondary_ip_range[1].range_name
+    subnet_gke_shrd_pub_name_pod_range        = google_compute_subnetwork.gke_vpc_subnet_shrd_pub.secondary_ip_range[1].range_name
   
   
   })
@@ -708,7 +708,7 @@ output "shared_vpc_subnet_avantia_dev_gce_pub_cea_cea" {
 ########################################################
 
 resource "local_file" "export_subnet_gce_cea" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_dev_gce_pri_cea_name       = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_gce_pri_cea.self_link
     subnet_dev_gce_pub_cea_name       = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_gce_pub_cea.self_link
   })
@@ -756,9 +756,9 @@ output "shared_vpc_subnet_avantia_dev_gce_pub_ceb_ceb" {
 }
 
 resource "local_file" "export_subnet_gce_ceb" {
-  content = jsondecode({
-
-
+  content = jsonencode({
+    subnet_dev_gce_pri_ceb_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_gce_pri_ceb.self_link
+    subnet_dev_gce_pub_ceb_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_gce_pub_ceb.self_link
   })
   filename = "../../local/dev_gce_subnets_us_central1-b.json"
 }
@@ -804,9 +804,9 @@ output "shared_vpc_subnet_avantia_dev_gce_pub_cec_cec" {
 }
 
 resource "local_file" "export_subnet_gce_cec" {
-  content = jsondecode({
-
-
+  content = jsonencode({
+    subnet_dev_gce_pri_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_gce_pri_cec.self_link
+    subnet_dev_gce_pub_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_gce_pub_cec.self_link
   })
   filename = "../../local/dev_gce_subnets_us_central1-c.json"
 }
@@ -852,7 +852,7 @@ output "shared_vpc_subnet_avantia_dev_end_svc_pub_cea_cec" {
 }
 
 resource "local_file" "export_subnet_dev_end_svc_cea" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_dev_end_svc_pri_cea_name = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_end_svc_pri_cea.self_link
     subnet_dev_end_svc_pub_cea_name = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_end_svc_pub_cea.self_link
   })
@@ -900,7 +900,7 @@ output "shared_vpc_subnet_avantia_dev_end_svc_pub_ceb_cec" {
 }
 
 resource "local_file" "export_subnet_dev_end_svc_ceb" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_dev_end_svc_pri_ceb_name = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_end_svc_pri_ceb.self_link
     subnet_dev_end_svc_pub_ceb_name = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_end_svc_pub_ceb.self_link
   })
@@ -948,7 +948,7 @@ output "shared_vpc_subnet_avantia_dev_end_svc_pub_cec_cec" {
 }
 
 resource "local_file" "export_subnet_dev_end_svc_cec" {
-  content = jsondecode({
+  content = jsonencode({
     subnet_dev_end_svc_pri_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_end_svc_pri_cec.self_link
     subnet_dev_end_svc_pri_cec_name   = google_compute_subnetwork.shared_vpc_subnet_avantia_dev_end_svc_pub_cec.self_link
   })

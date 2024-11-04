@@ -25,11 +25,6 @@ variable "folder_shared_id" {
 ##########################
 # Environment's settings #
 ##########################
-variable "env" {
-  description = "Environment Identifier"
-  type = string
-}
-
 variable "prd_env" {
   description = "Production Environment"
   type = string
