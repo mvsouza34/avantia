@@ -230,3 +230,18 @@ resource "google_compute_firewall" "avanuv-sg-prod-pri-bastion-all-lan-1-egress"
     project = var.host_project_id
     source_ranges = ["0.0.0.0/0"]
 }
+
+# IAP Proxy APIs allow ingress
+resource "google_compute_firewall" "iap-proxy-api-prd" {
+  description = "Regras de acesso Banco de dados"
+    allow {
+      protocol = "tcp"
+    }
+
+    direction = "INGRESS"
+    name = "iap-proxy-api-prd"
+    network = var.prod_vpc_id
+    priority = 1000
+    project = var.host_project_id
+    source_ranges = ["35.235.240.0/20"]
+}

@@ -197,3 +197,18 @@ resource "google_compute_firewall" "avanuv-sg-devl-pri-rds-all-lan-1-egress" {
     project = var.host_project_id
     source_ranges = ["0.0.0.0/0"]
 }
+
+# IAP Proxy APIs allow ingress
+resource "google_compute_firewall" "iap-proxy-api-lab" {
+  description = "IAP Proxy APIs"
+    allow {
+      protocol = "tcp"
+    }
+
+    direction = "INGRESS"
+    name = "iap-proxy-api-lab"
+    network = var.lab_vpc_id
+    priority = 1000
+    project = var.host_project_id
+    source_ranges = ["35.235.240.0/20"]
+}
