@@ -25,6 +25,10 @@ variable "zone_01_id" {
   description = "zone A id"
   type = string
 }
+variable "zone_02_id" {
+  description = "Zone B id"
+  type = string
+}
 
 ##################
 # Authorized IPs #

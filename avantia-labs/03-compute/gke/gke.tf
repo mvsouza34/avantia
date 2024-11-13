@@ -12,18 +12,19 @@ resource "google_container_cluster" "avantia_pri_dev_gke" {
   node_config {
     machine_type = "n1-standard-2"
     tags = ["gke"]
-  }
+      }
+
 
   private_cluster_config {
         enable_private_endpoint = true
         enable_private_nodes    = true
-        master_ipv4_cidr_block  = var.subnet_cidr_cluster_range_control 
+        master_ipv4_cidr_block  = var.subnet_cidr_cluster_range_control
     } 
 
   ip_allocation_policy {
     stack_type = "IPV4"
-    services_secondary_range_name   = local.dev_gke_subnets_us_central1-a.subnet_gke_avanuv_pri_name_pod_range
-    cluster_secondary_range_name    = local.dev_gke_subnets_us_central1-a.subnet_gke_avanuv_pri_name_services_range
+    services_secondary_range_name   = local.dev_gke_subnets_us_central1-a.subnet_gke_avanuv_pri_name_services_range
+    cluster_secondary_range_name    = local.dev_gke_subnets_us_central1-a.subnet_gke_avanuv_pri_name_pod_range
   }
 
   workload_identity_config {

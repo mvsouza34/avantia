@@ -5,6 +5,10 @@ variable "avantia_host_project_id" {
   description = "Host project ID"
   type = string
 }
+variable "avantia_service_project_id" {
+  description = "Service project ID"
+  type = string
+}
 
 ####################
 # Environment's ID #

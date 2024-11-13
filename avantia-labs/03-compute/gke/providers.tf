@@ -20,6 +20,7 @@ locals {
   dev_gke_subnets_us_central1-a    = jsondecode(file("../../../avantia-foundation/local/dev_gke_subnets_us_central1-a.json"))
 
 
+
   #shared_vpcs = jsondecode(file("../../local/shared_vpcs.json"))
   # output_nat_ip          = jsondecode(file("../local/output_nat_ip.json"))
 }

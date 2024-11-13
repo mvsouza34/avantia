@@ -12,7 +12,7 @@ resource "google_compute_firewall" "gke-cluster-sg-devl-gke-avnt-avanuv-cluster"
     network = var.lab_vpc_id
     priority = 1000
     project = var.host_project_id
-    source_ranges = ["10.242.0.0/16"]
+    source_ranges = ["10.243.0.0/16"]
 }
 
 # Segunda regra listada na planilha
@@ -45,7 +45,7 @@ resource "google_compute_firewall" "gke-cluster-sg-devl-pri-default-all-lan-1" {
     network = var.lab_vpc_id
     priority = 1000
     project = var.host_project_id
-    source_ranges = ["10.242.0.0/16"]
+    source_ranges = ["10.243.0.0/16"]
 }
 
 # Quarta regra listada na planilha
@@ -98,22 +98,22 @@ resource "google_compute_firewall" "mediasvc-sg-devl-pub-internet-wowza-access-a
     network = var.lab_vpc_id
     priority = 1000
     project = var.host_project_id
-    source_ranges = ["10.242.0.0/16"]
+    source_ranges = ["10.243.0.0/16"]
 }
 
 # Regra contida na quinta, porém, com negação de saída
-resource "google_compute_firewall" "mediasvc-sg-devl-pub-internet-wowza-access-egress" {
-  description = "Liberação da rede privada inteira"
-    deny {
-      protocol = "ALL"
-    }
+# resource "google_compute_firewall" "mediasvc-sg-devl-pub-internet-wowza-access-egress" {
+#   description = "Liberação da rede privada inteira"
+#     deny {
+#       protocol = "ALL"
+#     }
 
-    direction = "EGRESS"
-    name = "mediasvc-sg-devl-pub-internet-wowza-access-egress"
-    network = var.lab_vpc_id
-    priority = 1000
-    project = var.host_project_id
-}
+#     direction = "EGRESS"
+#     name = "mediasvc-sg-devl-pub-internet-wowza-access-egress"
+#     network = var.lab_vpc_id
+#     priority = 1000
+#     project = var.host_project_id
+# }
 
 # Setima regra da planilha
 resource "google_compute_firewall" "avanunv-sg-devl-pub-internet-http-lb-1" {
@@ -146,7 +146,7 @@ resource "google_compute_firewall" "avanunv-sg-devl-pub-internet-http-lb-1-priva
     network = var.lab_vpc_id
     priority = 1000
     project = var.host_project_id
-    source_ranges = ["10.242.0.0/16"]
+    source_ranges = ["10.243.0.0/16"]
 }
 
 resource "google_compute_firewall" "avanunv-sg-devl-pub-internet-http-lb-1-egress" {
@@ -179,7 +179,7 @@ resource "google_compute_firewall" "avanuv-sg-devl-pri-rds-all-lan-1" {
     network = var.lab_vpc_id
     priority = 1000
     project = var.host_project_id
-    source_ranges = ["10.242.0.0/16"]
+    source_ranges = ["10.243.0.0/16"]
 }
 
 resource "google_compute_firewall" "avanuv-sg-devl-pri-rds-all-lan-1-egress" {
@@ -203,7 +203,10 @@ resource "google_compute_firewall" "iap-proxy-api-lab" {
   description = "IAP Proxy APIs"
     allow {
       protocol = "tcp"
+      ports = [ "22" ]
     }
+
+    target_tags = [ "allow-iap" ]
 
     direction = "INGRESS"
     name = "iap-proxy-api-lab"
@@ -211,4 +214,38 @@ resource "google_compute_firewall" "iap-proxy-api-lab" {
     priority = 1000
     project = var.host_project_id
     source_ranges = ["35.235.240.0/20"]
+}
+
+resource "google_compute_firewall" "default-allow-internal" {
+  description = "IAP Proxy APIs"
+    allow {
+      protocol = "tcp"
+      ports = [ "0-65535" ]
+    }
+    allow {
+      protocol = "udp"
+      ports = [ "0-65535" ]
+    }
+
+    direction = "INGRESS"
+    name = "default-allow-internal"
+    network = var.lab_vpc_id
+    priority = 65534
+    project = var.host_project_id
+    source_ranges = ["0.0.0.0/0"]
+}
+
+#########Troubleshooting com o Ítalo################
+
+resource "google_compute_firewall" "valida-licenca-wowza" {
+    allow {
+      protocol = "TCP"
+      ports    = ["80"]
+    }
+    direction = "EGRESS"
+    name = "valida-licenca-wowza"
+    network = var.lab_vpc_id
+    priority = 1000
+    project = var.host_project_id
+    source_ranges = ["0.0.0.0/0"]
 }
