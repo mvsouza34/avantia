@@ -17,7 +17,7 @@ locals {
   avantia_service_project   = jsondecode(file("../../../avantia-foundation/local/avantia_service_project.json"))
   avantia_prd_service_project = jsondecode(file("../../../avantia-foundation/local/avantia_prd_service_project.json"))
   lab_shared_vpc    = jsondecode(file("../../../avantia-foundation/local/lab_shared_vpc.json"))
-  dev_gke_subnets_us_central1-a    = jsondecode(file("../../../avantia-foundation/local/dev_gke_subnets_us_central1-a.json"))
+  #dev_gke_subnets_us_central1-a    = jsondecode(file("../../../avantia-foundation/local/dev_gke_subnets_us_central1-a.json"))
 
 
 
