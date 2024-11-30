@@ -31,7 +31,7 @@ resource "local_file" "service_project" {
     name_suffix = random_id.name_suffix.hex
   })
 
-  filename = "../local/avantia_service_project.json"
+  filename = "../../local/avantia_service_project.json"
 }
 
 ################################

@@ -1,7 +1,15 @@
+################################################
+# Define the region and zone for the resources #
+################################################
+variable "region_id" {
+  description = "The region for the resources"
+  type        = string
+}
+
 # ########################
 # # Dev Cluster Settings #
 # ########################
-variable "lab_cluster_id" {
+variable "dev_cluster_id" {
   description = "The ID of the LAB Cluster"
   type = string
 }
@@ -33,6 +41,35 @@ variable "zone_01_id" {
   description = "The zone for the resources"
   type        = string
 }
+
+#######################
+# Cluster VPC Network #
+#######################
+variable "dev_service_vpc_name" {
+  description = "The name of the VPC network"
+  type        = string
+}
+variable "dev_subnet_cluster_name" {
+  description = "The name of the subnet"
+  type        = string
+}
+variable "dev_subnet_control_range" {
+  description = "The CIDR of the dev control plane"
+  type        = string
+}
+variable "lab_subnet_cidr_environment" {
+  description = "The CIDR of the subnet"
+  type        = string
+}
+
+########################
+# Define Enviroment ID #
+########################
+variable "env" {
+  description = "The name of the environment"
+  type        = string
+}
+
 ################################################################################
 ###############################################
 # Node Pools PODs CIDR Blocks and their names #

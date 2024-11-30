@@ -122,7 +122,7 @@ resource "google_container_node_pool" "avva-app-hoint" {
   }
   max_pods_per_node = 35
   node_config {
-    preemptible  = true
+    preemptible  = false
     tags = ["avva-app-hoint"]
     machine_type = "t2a-standard-2"
     advanced_machine_features {
@@ -160,7 +160,7 @@ resource "google_container_node_pool" "avanuv-box-staging" {
   }
   max_pods_per_node = 20
   node_config {
-    preemptible  = true
+    preemptible  = false
     tags = ["avanuv-box-staging"]
     machine_type = "t2a-standard-2"
     advanced_machine_features {
@@ -199,7 +199,7 @@ resource "google_container_node_pool" "avanuv-app-staging" {
   }
   max_pods_per_node = 25
   node_config {
-    preemptible  = true
+    preemptible  = false
     tags = ["avanuv-app-staging"]
     machine_type = "t2a-standard-2"
     advanced_machine_features {
@@ -239,7 +239,7 @@ resource "google_container_node_pool" "classifier-staging" {
   }
   max_pods_per_node = 15
   node_config {
-    preemptible  = true
+    preemptible  = false
     tags = ["classifier-staging"]
     machine_type = "n1-standard-4"
     guest_accelerator {
@@ -266,3 +266,61 @@ resource "google_container_node_pool" "classifier-staging" {
     }
   }
 }
+
+##################################### EXPORTED NODE POOL ############################################
+resource "google_container_node_pool" "servicos" {
+  autoscaling {
+    location_policy      = "ANY"
+    total_max_node_count = 5
+  }
+  cluster            = "avantia-private-cluster-lab-staging"
+  initial_node_count = 1
+  location           = "us-central1-a"
+  management {
+    auto_repair  = true
+    auto_upgrade = true
+  }
+  max_pods_per_node = 20
+  name              = "servicos"
+  network_config {
+    enable_private_nodes = true
+    pod_ipv4_cidr_block  = "10.243.24.0/24"
+    pod_range            = "avantia-infr-stg-gke-wecloud-defaultpod-pri-us-ce1-1"
+  }
+  node_config {
+    advanced_machine_features {
+      threads_per_core = 0
+    }
+    disk_size_gb = 30
+    disk_type    = "pd-balanced"
+    ephemeral_storage_local_ssd_config {
+      local_ssd_count = 1
+    }
+    image_type = "COS_CONTAINERD"
+    labels = {
+      application = "servicos"
+    }
+    logging_variant = "DEFAULT"
+    machine_type    = "e2-medium"
+    metadata = {
+      disable-legacy-endpoints = "true"
+    }
+    oauth_scopes    = ["https://www.googleapis.com/auth/devstorage.read_only", "https://www.googleapis.com/auth/logging.write", "https://www.googleapis.com/auth/monitoring", "https://www.googleapis.com/auth/service.management.readonly", "https://www.googleapis.com/auth/servicecontrol", "https://www.googleapis.com/auth/trace.append"]
+    service_account = "default"
+    shielded_instance_config {
+      enable_integrity_monitoring = true
+    }
+    workload_metadata_config {
+      mode          = "GKE_METADATA"
+    }
+  }
+  node_count     = 1
+  node_locations = ["us-central1-a"]
+  project        = "avantia-avanuv-labs"
+  upgrade_settings {
+    max_surge = 1
+    strategy  = "SURGE"
+  }
+  version = "1.30.5-gke.1443001"
+}
+# terraform import google_container_node_pool.servicos avantia-avanuv-labs/us-central1-a/avantia-private-cluster-lab-staging/servicos

@@ -355,6 +355,7 @@ resource "google_compute_subnetwork" "subnet_avantia_weava_pri" {
   region        = var.region_id
   
   stack_type       = "IPV4_ONLY"
+  
 
   network = google_compute_network.vpc_network_avantia_prd.self_link
   

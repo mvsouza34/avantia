@@ -2,8 +2,8 @@ resource "google_project" "avantia_prd_service_project" {
   auto_create_network = false
   billing_account     = "${var.billing_account}"                                        # Validar a conta de faturamento
   folder_id           = "${var.prd_folder_shared_id}"                                       # Apontando para "POC"
-  name                = "${var.avantia_prd_service_project_id}-${var.prd_env}"
-  project_id          = "${var.avantia_prd_service_project_id}-${var.prd_env}"
+  name                = "${var.avantia_prd_service_project_id}"
+  project_id          = "${var.avantia_prd_service_project_id}"
 
   # deletion_policy = "DELETE"
 }
@@ -17,9 +17,9 @@ output "prd_service_project_name" {
 output "prd_service_project_number" {
   value = "${google_project.avantia_prd_service_project.number}"
 }
-output "prd_serrvice_name_suffix" {
-  value = "${random_id.name_suffix.hex}"
-}
+# output "prd_serrvice_name_suffix" {
+#   value = "${random_id.name_suffix.hex}"
+# }
 
 ########################################################
 # Create a Output Files to reuse generated information #
@@ -29,10 +29,10 @@ resource "local_file" "prd_service_project" {
     prd_service_project_id = google_project.avantia_prd_service_project.id
     prd_service_project_name = google_project.avantia_prd_service_project.name
     prd_service_project_number = google_project.avantia_prd_service_project.number
-    name_suffix = random_id.name_suffix.hex
+    #name_suffix = random_id.name_suffix.hex
   })
 
-  filename = "../local/avantia_prd_service_project.json"
+  filename = "../../local/avantia_prd_service_project.json"
 }
 
 ################################

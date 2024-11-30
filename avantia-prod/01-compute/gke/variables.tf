@@ -5,10 +5,10 @@
 #   description = "Host project ID"
 #   type = string
 # }
-variable "avantia_service_project_id" {
-  description = "Service project ID"
-  type = string
-}
+# variable "avantia_service_project_id" {
+#   description = "Service project ID"
+#   type = string
+# }
 
 # ####################
 # # Environment's ID #
@@ -49,51 +49,51 @@ variable "avantia_service_project_id" {
 ############################################
 # Credentials file for the service account #
 ############################################
-variable "org_id" {
-  description = "The organization ID"
-  type        = string
-}
+# variable "org_id" {
+#   description = "The organization ID"
+#   type        = string
+# }
 ###########################################
 # Declarate information to Project Create #
 ###########################################
-variable "billing_account" {
-  description = "The billing account ID"
-  type        = string
-}
-variable "shared_folder_id" {
-  description = "The ID of the shared network folder"
-  type        = string
-}
-variable "environment_folder_id" {
-  description = "The ID of the environment folder"
-  type        = string
-}
-variable "project_folder_id" {
-  description = "The ID of the app folder"
-  type        = string
-}
+# variable "billing_account" {
+#   description = "The billing account ID"
+#   type        = string
+# }
+# variable "shared_folder_id" {
+#   description = "The ID of the shared network folder"
+#   type        = string
+# }
+# variable "environment_folder_id" {
+#   description = "The ID of the environment folder"
+#   type        = string
+# }
+# variable "project_folder_id" {
+#   description = "The ID of the app folder"
+#   type        = string
+# }
 ########################
 # Define Enviroment ID #
 ########################
-variable "env" {
-  description = "The name of the environment"
-  type        = string
-}
-variable "prd_env" {
-  description = "The name of the environment"
-  type        = string
-}
+# variable "env" {
+#   description = "The name of the environment"
+#   type        = string
+# }
+# variable "prd_env" {
+#   description = "The name of the environment"
+#   type        = string
+# }
 #######################################################
 # Set the Projects IDs for the different environments #
 #######################################################
-variable "host_project_id" {
+variable "prod_project_id" {
   description = "The ID of the app project"
   type        = string
 }
-variable "service_project_id" {
-  description = "The ID of the private project"
-  type        = string
-}
+# variable "service_project_id" {
+#   description = "The ID of the private project"
+#   type        = string
+# }
 ###########################
 # Define the machine type #
 ###########################
@@ -139,17 +139,12 @@ variable "zone_03_id" {
 #   description = "The name of the VPC network"
 #   type        = string
 # }
-variable "stag_service_vpc_name" {
+variable "prod_service_vpc_name" {
   description = "The name of the VPC network"
   type        = string
 }
 ################################################################################
-# Cluster subnets
-# variable "subnet_cluster_name" {
-#   description = "The name of the subnet"
-#   type        = string
-# }
-variable "stag_subnet_cluster_name" {
+variable "prod_subnet_cluster_name" {
   description = "The name of the subnet"
   type        = string
 }
@@ -157,7 +152,7 @@ variable "stag_subnet_cluster_name" {
 #   description = "The CIDR of the subnet"
 #   type        = string
 # }
-variable "lab_subnet_cidr_environment" {
+variable "prod_subnet_cidr_environment" {
   description = "The CIDR of the subnet"
   type        = string
 }
@@ -172,7 +167,7 @@ variable "lab_subnet_cidr_environment" {
 #   description = "The CIDR of the dev control plane"
 #   type        = string
 # }
-variable "stag_subnet_control_range" {
+variable "prod_subnet_control_range" {
   description = "The CIDR of the dev control plane"
   type        = string
 }

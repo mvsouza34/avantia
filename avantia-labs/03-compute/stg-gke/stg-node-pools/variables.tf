@@ -5,10 +5,10 @@
 #   description = "Host project ID"
 #   type = string
 # }
-variable "avantia_service_project_id" {
-  description = "Service project ID"
-  type = string
-}
+# variable "avantia_service_project_id" {
+#   description = "Service project ID"
+#   type = string
+# }
 
 # ####################
 # # Environment's ID #
@@ -98,6 +98,10 @@ variable "service_project_id" {
 # Define the machine type #
 ###########################
 variable "machine_type" {
+  description = "The machine type"
+  type        = string
+}
+variable "stg_cluster" {
   description = "The machine type"
   type        = string
 }
