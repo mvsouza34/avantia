@@ -189,7 +189,7 @@ autoscaling {
     auto_repair  = true
     auto_upgrade = true
   }
-  max_pods_per_node = 16
+  max_pods_per_node = 20
   node_config {
     preemptible  = false
     tags = ["classifier"]
