@@ -21,7 +21,6 @@ resource "google_container_node_pool" "avva-app-hoint" {
   }
   max_pods_per_node = 35
   node_config {
-    preemptible  = false
     tags = ["avva-app-hoint"]
     machine_type = "t2a-standard-2"
     advanced_machine_features {
@@ -64,7 +63,7 @@ resource "google_container_node_pool" "avanuv-box-staging" {
   }
   max_pods_per_node = 20
   node_config {
-    preemptible  = false
+    
     tags = ["avanuv-box-staging"]
     machine_type = "t2a-standard-2"
     advanced_machine_features {
@@ -108,7 +107,6 @@ resource "google_container_node_pool" "avanuv-app-staging" {
   }
   max_pods_per_node = 25
   node_config {
-    preemptible  = false
     tags = ["avanuv-app-staging"]
     machine_type = "t2a-standard-2"
     advanced_machine_features {
@@ -148,7 +146,7 @@ resource "google_container_node_pool" "classifier-staging" {
   }
   max_pods_per_node = 15
   node_config {
-    preemptible  = false
+    
     tags = ["classifier-staging"]
     machine_type = "n1-standard-4"
     guest_accelerator {

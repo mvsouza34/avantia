@@ -59,19 +59,7 @@ variable "env" {
 ######################
 # Project's settings #
 ######################
-variable "prd_folder_shared_id" {
-  description = "The folder shared's ID"
-  type = string
-}
 variable "avantia_prd_service_project_id" {
   description = "The ID of the host project ID"
-  type = string
-}
-
-##########################
-# Environment's settings #
-##########################
-variable "prd_env" {
-  description = "Environment Identifier"
   type = string
 }

@@ -19,8 +19,6 @@ locals {
   avantia_core_project    = jsondecode(file("../../local/avantia_core_project.json"))
   avantia_wesaferapp_project    = jsondecode(file("../../local/avantia_wesaferapp_project.json"))
   avantia_wesaferapp_lab_project    = jsondecode(file("../../local/avantia_wesaferapp_lab_project.json"))
-  #shared_vpcs = jsondecode(file("../../local/shared_vpcs.json"))
-  # output_nat_ip          = jsondecode(file("../local/output_nat_ip.json"))
 }
 
 # Configure the Google Cloud Provider

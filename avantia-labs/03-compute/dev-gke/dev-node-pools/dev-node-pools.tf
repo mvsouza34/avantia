@@ -21,7 +21,7 @@ resource "google_container_node_pool" "avva_app_devl_dev" {
   }
   max_pods_per_node = 35
   node_config {
-    preemptible  = false
+    
     tags = ["avva-app-devl"]
     machine_type = var.avva_app_devl_machine_type
     advanced_machine_features {
@@ -63,7 +63,6 @@ resource "google_container_node_pool" "avanuv_box_testing_dev" {
   }
   max_pods_per_node = 20
   node_config {
-    preemptible  = false
     tags = ["avanuv-box-testing"]
     machine_type = var.avanuv_box_testing_machine_type
     advanced_machine_features {
@@ -106,7 +105,6 @@ resource "google_container_node_pool" "avanuv_app_testing" {
   }
   max_pods_per_node = 25
   node_config {
-    preemptible  = false
     tags = ["avanuv-app-testing"]
     machine_type = var.avanuv_app_testing_machine_type
     advanced_machine_features {
@@ -146,7 +144,6 @@ resource "google_container_node_pool" "classifier_testing_dev" {
   }
   max_pods_per_node = 15
   node_config {
-    preemptible  = false
     tags = ["classifier-testing"]
     machine_type = var.classifier_testing_machine_type
     guest_accelerator {

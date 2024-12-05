@@ -1,7 +1,7 @@
 resource "google_project" "avantia_infra_audit_prd_project" {
   auto_create_network = false
   billing_account     = "${var.billing_account}"                                        # Validar a conta de faturamento
-  folder_id           = "${var.avantia_core_prd_folder_shared_id}"                                       # Apontando para "POC"
+  folder_id           = "${var.avantia_core_prd_folder_shared_id}"
   name                = "${var.avantia_core_prd_project_id}"
   project_id          = "${var.avantia_core_prd_project_id}"
 
