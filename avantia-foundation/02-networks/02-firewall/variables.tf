@@ -5,7 +5,6 @@ variable "service_vpc_id" {
   description = "Prod VPC ID"
   type = string
 }
-
 #######################################################
 # Set the Projects IDs for the different environments #
 #######################################################
