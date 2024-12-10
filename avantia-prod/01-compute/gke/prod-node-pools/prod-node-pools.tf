@@ -1,5 +1,5 @@
 resource "google_container_node_pool" "avva_app_int" {
-  name       = "avva-app-int"
+  name       = var.avva_app_int_name
   project = var.prod_project_id
   cluster    = var.prod_cluster
   node_count = 1
@@ -8,8 +8,8 @@ resource "google_container_node_pool" "avva_app_int" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.242.16.0/21"
-    pod_range            = "avantia-infr-prod-gke-wecloud-weavaintpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avva_app_int_pod_cidr_block
+    pod_range            = var.avva_app_int_cidr_block_name
   }
   management {
     auto_repair  = true
@@ -18,7 +18,7 @@ resource "google_container_node_pool" "avva_app_int" {
   max_pods_per_node = 25
   node_config {
     tags = ["avva-app-int"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avva_app_int_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -40,7 +40,7 @@ resource "google_container_node_pool" "avva_app_int" {
 }
 
 resource "google_container_node_pool" "avanuv_production" {
-  name       = "avanuv-production"
+  name       = var.avanuv_production_name
   project = var.prod_project_id
   cluster    = var.prod_cluster
   node_count = 0
@@ -49,8 +49,8 @@ resource "google_container_node_pool" "avanuv_production" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.240.64.0/19"
-    pod_range            = "avantia-infr-prod-gke-wecloud-boxpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avanuv_production_pod_cidr_block
+    pod_range            = var.avanuv_production_cidr_block_name
   }
   management {
     auto_repair  = true
@@ -60,7 +60,7 @@ resource "google_container_node_pool" "avanuv_production" {
   node_config {
     
     tags = ["avanuv-production"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avanuv_production_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -81,7 +81,7 @@ resource "google_container_node_pool" "avanuv_production" {
   }
 }
 resource "google_container_node_pool" "avva_cameras_int" {
-  name       = "avva-cameras-int"
+  name       = var.avva_cameras_int_name
   project = var.prod_project_id
   cluster    = var.prod_cluster
   node_count = 0
@@ -90,8 +90,8 @@ resource "google_container_node_pool" "avva_cameras_int" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.242.48.0/21"
-    pod_range            = "avantia-infr-prod-gke-wecloud-avva-cameras-int-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avva_cameras_int_pod_cidr_block
+    pod_range            = var.avva_cameras_int_cidr_block_name
   }
 
   management {
@@ -102,7 +102,7 @@ resource "google_container_node_pool" "avva_cameras_int" {
   node_config {
     
     tags = ["avva-cameras-int"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avva_cameras_int_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -124,7 +124,7 @@ resource "google_container_node_pool" "avva_cameras_int" {
 }
 
 resource "google_container_node_pool" "avanuv_app_production" {
-  name       = "avanuv-app-production"
+  name       = var.avanuv_app_production_name
   project = var.prod_project_id
   cluster    = var.prod_cluster
   node_count = 0
@@ -133,8 +133,8 @@ resource "google_container_node_pool" "avanuv_app_production" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.242.24.0/21"
-    pod_range            = "avantia-infr-prod-gke-wecloud-wecloudpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avanuv_app_production_pod_cidr_block
+    pod_range            = var.avanuv_app_production_cidr_block_name
   }
 
   management {
@@ -145,7 +145,7 @@ resource "google_container_node_pool" "avanuv_app_production" {
   node_config {
     
     tags = ["avanuv-app-production"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avanuv_app_production_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -171,7 +171,7 @@ autoscaling {
     location_policy      = "ANY"
     total_max_node_count = 15
   }
-  name       = "classifier"
+  name       = var.classifier_name
   project = var.prod_project_id
   cluster    = var.prod_cluster
   node_count = 8
@@ -180,8 +180,8 @@ autoscaling {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.242.32.0/21"
-    pod_range            = "avantia-infr-prod-gke-wecloud-classfierspod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.classifier_pod_cidr_block
+    pod_range            = var.classifier_cidr_block_name
   }
 
   management {
@@ -191,9 +191,9 @@ autoscaling {
   max_pods_per_node = 20
   node_config {
     tags = ["classifier"]
-    machine_type = "n1-standard-8"
+    machine_type = var.classifier_n1_machine_type
     guest_accelerator {
-      type = "nvidia-tesla-t4"
+      type = var.classifier_n1_accelerator
       count = 1
       gpu_sharing_config {
         gpu_sharing_strategy = "MPS"

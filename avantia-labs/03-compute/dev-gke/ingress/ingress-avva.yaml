@@ -1,0 +1,502 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    konghq.com/https-redirect-status-code: "301"
+    konghq.com/plugins: gelf-graylog-priv-plugin
+    konghq.com/protocols: https
+    konghq.com/strip-path: "false"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt","konghq.com/https-redirect-status-code":"301","konghq.com/plugins":"gelf-graylog-priv-plugin","konghq.com/protocols":"https","konghq.com/strip-path":"false"},"name":"ingress-avva","namespace":"avva-app-devl"},"spec":{"ingressClassName":"kong","rules":[{"host":"devl.weava.wesafer.com.br","http":{"paths":[{"backend":{"service":{"name":"svc-frontend","port":{"number":80}}},"path":"/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-alarmcentral","port":{"number":8090}}},"path":"/api/resources/alarmcentral/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-alert","port":{"number":8090}}},"path":"/api/resources/alert/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-alertprotocol","port":{"number":8090}}},"path":"/api/resources/alertprotocol/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-analytic","port":{"number":8090}}},"path":"/api/resources/analytic/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-analytictype","port":{"number":8090}}},"path":"/api/resources/analytictype/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-box","port":{"number":8090}}},"path":"/api/resources/box/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-calendar","port":{"number":8090}}},"path":"/api/resources/calendar/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-camera","port":{"number":8090}}},"path":"/api/resources/camera/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-camerasset","port":{"number":8090}}},"path":"/api/resources/camerasset/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-condition","port":{"number":8090}}},"path":"/api/resources/condition/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-configurationsystem","port":{"number":8090}}},"path":"/api/resources/configurationsystem/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-contact","port":{"number":8090}}},"path":"/api/resources/contact/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-customer","port":{"number":8090}}},"path":"/api/resources/customer/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-datafilter","port":{"number":8090}}},"path":"/api/resources/datafilter/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-diagram","port":{"number":8090}}},"path":"/api/resources/diagram/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-equipment","port":{"number":8090}}},"path":"/api/resources/equipment/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-eventtype","port":{"number":8090}}},"path":"/api/resources/eventtype/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-floorplan","port":{"number":8090}}},"path":"/api/resources/floorplan/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-flowchart","port":{"number":8090}}},"path":"/api/resources/flowchart/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-integratedcamera","port":{"number":8090}}},"path":"/api/resources/integratedcamera/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-integrationclient","port":{"number":8090}}},"path":"/api/resources/integrationclient/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-log","port":{"number":8090}}},"path":"/api/resources/log/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-magicbox","port":{"number":8090}}},"path":"/api/resources/magicbox/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-occurrence","port":{"number":8090}}},"path":"/api/resources/occurrence/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-profile","port":{"number":8090}}},"path":"/api/resources/profile/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-provider","port":{"number":8090}}},"path":"/api/resources/provider/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-report","port":{"number":8090}}},"path":"/api/resources/report/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-schedule","port":{"number":8090}}},"path":"/api/resources/schedule/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-users","port":{"number":8090}}},"path":"/api/resources/users/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-videowall","port":{"number":8090}}},"path":"/api/resources/videowall/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-virtualtour","port":{"number":8090}}},"path":"/api/resources/virtualtour/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-virtualtour","port":{"number":8090}}},"path":"/api/servers/virtualtour/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-resources-zone","port":{"number":8090}}},"path":"/api/resources/zone/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-alert","port":{"number":8090}}},"path":"/api/servers/alert/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-analytic","port":{"number":8090}}},"path":"/api/servers/analytic/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-box","port":{"number":8090}}},"path":"/api/servers/box/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-boxcluster","port":{"number":8090}}},"path":"/api/servers/boxcluster/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-customer","port":{"number":8090}}},"path":"/api/servers/customer/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-email","port":{"number":8090}}},"path":"/api/servers/email/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-integration","port":{"number":8090}}},"path":"/api/servers/integration/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-telegram","port":{"number":8090}}},"path":"/api/servers/telegram/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-video","port":{"number":8090}}},"path":"/api/servers/video/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-log","port":{"number":8090}}},"path":"/api/servers/log/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-magicbox","port":{"number":8090}}},"path":"/api/servers/magicbox/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-routine","port":{"number":8090}}},"path":"/api/servers/routine/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-sms","port":{"number":8090}}},"path":"/api/servers/sms/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-stream","port":{"number":8090}}},"path":"/api/servers/stream/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-servers-camera","port":{"number":8090}}},"path":"/api/servers/camera/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-alert","port":{"number":8090}}},"path":"/api/integrations/alert/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-analytic","port":{"number":8090}}},"path":"/api/integrations/analytic/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-calendar","port":{"number":8090}}},"path":"/api/integrations/calendar/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-camera","port":{"number":8090}}},"path":"/api/integrations/camera/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-customer","port":{"number":8090}}},"path":"/api/integrations/customer/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-integratedcamera","port":{"number":8090}}},"path":"/api/integrations/integratedcamera/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-device","port":{"number":8090}}},"path":"/api/integrations/device/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-event","port":{"number":8090}}},"path":"/api/integrations/event/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-magicbox","port":{"number":8090}}},"path":"/api/integrations/magicbox/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-service","port":{"number":8090}}},"path":"/api/integrations/service/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-report","port":{"number":8090}}},"path":"/api/integrations/report/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-integrations-integratedcamera","port":{"number":8090}}},"path":"/api/integrations/integratedcamera/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-api-bases-multimedia","port":{"number":8090}}},"path":"/api/bases/multimedia/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-mobile-backend","port":{"number":8090}}},"path":"/mobile/","pathType":"ImplementationSpecific"}]}}],"tls":[{"hosts":["devl.weava.wesafer.com.br"],"secretName":"ingress-cert"}]}}
+  creationTimestamp: "2024-12-04T11:55:15Z"
+  generation: 1
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:cert-manager.io/cluster-issuer: {}
+          f:konghq.com/https-redirect-status-code: {}
+          f:konghq.com/plugins: {}
+          f:konghq.com/protocols: {}
+          f:konghq.com/strip-path: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:ingressClassName: {}
+        f:rules: {}
+        f:tls: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2024-12-04T11:55:15Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kong-ingress-controller
+    operation: Update
+    subresource: status
+    time: "2024-12-04T11:55:17Z"
+  name: ingress-avva
+  namespace: avva-app-devl
+  resourceVersion: "5587720"
+  uid: c91b12ae-30f0-46cb-9284-a67b696a9835
+spec:
+  ingressClassName: kong
+  rules:
+  - host: devl.weava.wesafer.com.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: svc-frontend
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-alarmcentral
+            port:
+              number: 8090
+        path: /api/resources/alarmcentral/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-alert
+            port:
+              number: 8090
+        path: /api/resources/alert/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-alertprotocol
+            port:
+              number: 8090
+        path: /api/resources/alertprotocol/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-analytic
+            port:
+              number: 8090
+        path: /api/resources/analytic/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-analytictype
+            port:
+              number: 8090
+        path: /api/resources/analytictype/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-box
+            port:
+              number: 8090
+        path: /api/resources/box/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-calendar
+            port:
+              number: 8090
+        path: /api/resources/calendar/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-camera
+            port:
+              number: 8090
+        path: /api/resources/camera/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-camerasset
+            port:
+              number: 8090
+        path: /api/resources/camerasset/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-condition
+            port:
+              number: 8090
+        path: /api/resources/condition/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-configurationsystem
+            port:
+              number: 8090
+        path: /api/resources/configurationsystem/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-contact
+            port:
+              number: 8090
+        path: /api/resources/contact/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-customer
+            port:
+              number: 8090
+        path: /api/resources/customer/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-datafilter
+            port:
+              number: 8090
+        path: /api/resources/datafilter/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-diagram
+            port:
+              number: 8090
+        path: /api/resources/diagram/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-equipment
+            port:
+              number: 8090
+        path: /api/resources/equipment/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-eventtype
+            port:
+              number: 8090
+        path: /api/resources/eventtype/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-floorplan
+            port:
+              number: 8090
+        path: /api/resources/floorplan/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-flowchart
+            port:
+              number: 8090
+        path: /api/resources/flowchart/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-integratedcamera
+            port:
+              number: 8090
+        path: /api/resources/integratedcamera/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-integrationclient
+            port:
+              number: 8090
+        path: /api/resources/integrationclient/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-log
+            port:
+              number: 8090
+        path: /api/resources/log/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-magicbox
+            port:
+              number: 8090
+        path: /api/resources/magicbox/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-occurrence
+            port:
+              number: 8090
+        path: /api/resources/occurrence/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-profile
+            port:
+              number: 8090
+        path: /api/resources/profile/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-provider
+            port:
+              number: 8090
+        path: /api/resources/provider/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-report
+            port:
+              number: 8090
+        path: /api/resources/report/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-schedule
+            port:
+              number: 8090
+        path: /api/resources/schedule/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-users
+            port:
+              number: 8090
+        path: /api/resources/users/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-videowall
+            port:
+              number: 8090
+        path: /api/resources/videowall/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-virtualtour
+            port:
+              number: 8090
+        path: /api/resources/virtualtour/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-virtualtour
+            port:
+              number: 8090
+        path: /api/servers/virtualtour/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-resources-zone
+            port:
+              number: 8090
+        path: /api/resources/zone/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-alert
+            port:
+              number: 8090
+        path: /api/servers/alert/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-analytic
+            port:
+              number: 8090
+        path: /api/servers/analytic/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-box
+            port:
+              number: 8090
+        path: /api/servers/box/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-boxcluster
+            port:
+              number: 8090
+        path: /api/servers/boxcluster/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-customer
+            port:
+              number: 8090
+        path: /api/servers/customer/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-email
+            port:
+              number: 8090
+        path: /api/servers/email/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-integration
+            port:
+              number: 8090
+        path: /api/servers/integration/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-telegram
+            port:
+              number: 8090
+        path: /api/servers/telegram/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-video
+            port:
+              number: 8090
+        path: /api/servers/video/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-log
+            port:
+              number: 8090
+        path: /api/servers/log/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-magicbox
+            port:
+              number: 8090
+        path: /api/servers/magicbox/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-routine
+            port:
+              number: 8090
+        path: /api/servers/routine/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-sms
+            port:
+              number: 8090
+        path: /api/servers/sms/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-stream
+            port:
+              number: 8090
+        path: /api/servers/stream/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-servers-camera
+            port:
+              number: 8090
+        path: /api/servers/camera/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-alert
+            port:
+              number: 8090
+        path: /api/integrations/alert/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-analytic
+            port:
+              number: 8090
+        path: /api/integrations/analytic/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-calendar
+            port:
+              number: 8090
+        path: /api/integrations/calendar/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-camera
+            port:
+              number: 8090
+        path: /api/integrations/camera/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-customer
+            port:
+              number: 8090
+        path: /api/integrations/customer/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-integratedcamera
+            port:
+              number: 8090
+        path: /api/integrations/integratedcamera/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-device
+            port:
+              number: 8090
+        path: /api/integrations/device/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-event
+            port:
+              number: 8090
+        path: /api/integrations/event/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-magicbox
+            port:
+              number: 8090
+        path: /api/integrations/magicbox/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-service
+            port:
+              number: 8090
+        path: /api/integrations/service/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-report
+            port:
+              number: 8090
+        path: /api/integrations/report/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-integrations-integratedcamera
+            port:
+              number: 8090
+        path: /api/integrations/integratedcamera/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-api-bases-multimedia
+            port:
+              number: 8090
+        path: /api/bases/multimedia/
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-mobile-backend
+            port:
+              number: 8090
+        path: /mobile/
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - devl.weava.wesafer.com.br
+    secretName: ingress-cert
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.238.139.140

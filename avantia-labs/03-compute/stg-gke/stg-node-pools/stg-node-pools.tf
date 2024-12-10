@@ -1,5 +1,5 @@
 resource "google_container_node_pool" "avva-app-hoint" {
-  name       = "avva-app-hoint"
+  name       = var.avva_app_hoint_name
   project = var.service_project_id
   cluster    = var.stg_cluster
   node_count = 11
@@ -12,8 +12,8 @@ resource "google_container_node_pool" "avva-app-hoint" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.243.48.0/21"
-    pod_range            = "avantia-infr-stag-gke-wecloud-defaultpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avva_app_hoint_pod_cidr_block
+    pod_range            = var.avva_app_hoint_cidr_block_name
   }
   management {
     auto_repair  = true
@@ -22,7 +22,7 @@ resource "google_container_node_pool" "avva-app-hoint" {
   max_pods_per_node = 35
   node_config {
     tags = ["avva-app-hoint"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avva_app_hoint_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -40,7 +40,7 @@ resource "google_container_node_pool" "avva-app-hoint" {
   }
 }
 resource "google_container_node_pool" "avanuv-box-staging" {
-  name       = "avanuv-box-staging"
+  name       = var.avanuv_box_staging_name
   project = var.service_project_id
   cluster    = var.stg_cluster
   node_count = 1
@@ -54,8 +54,8 @@ resource "google_container_node_pool" "avanuv-box-staging" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.243.56.0/21"
-    pod_range            = "avantia-infr-stag-gke-wecloud-weavaintpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avanuv_box_staging_pod_cidr_block
+    pod_range            = var.avanuv_box_staging_cidr_block_name
   }
   management {
     auto_repair  = true
@@ -65,7 +65,7 @@ resource "google_container_node_pool" "avanuv-box-staging" {
   node_config {
     
     tags = ["avanuv-box-staging"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avanuv_box_staging_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -83,7 +83,7 @@ resource "google_container_node_pool" "avanuv-box-staging" {
   }
 }
 resource "google_container_node_pool" "avanuv-app-staging" {
-  name       = "avanuv-app-staging"
+  name       = var.avanuv_app_staging_name
   project = var.service_project_id
   cluster    = var.stg_cluster
   node_count = 1
@@ -97,8 +97,8 @@ resource "google_container_node_pool" "avanuv-app-staging" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.243.64.0/21"
-    pod_range            = "avantia-infr-stag-gke-wecloud-wecloudpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.avanuv_app_staging_pod_cidr_block
+    pod_range            = var.avanuv_app_staging_cidr_block_name
   }
 
   management {
@@ -108,7 +108,7 @@ resource "google_container_node_pool" "avanuv-app-staging" {
   max_pods_per_node = 25
   node_config {
     tags = ["avanuv-app-staging"]
-    machine_type = "t2a-standard-2"
+    machine_type = var.avanuv_app_staging_t2_machine_type
     advanced_machine_features {
       threads_per_core = 0
     }
@@ -127,7 +127,7 @@ resource "google_container_node_pool" "avanuv-app-staging" {
 }
 
 resource "google_container_node_pool" "classifier-staging" {
-  name       = "classifier-staging"
+  name       = var.classifier_staging_name
   project = var.service_project_id
   cluster    = var.stg_cluster
   node_count = 1
@@ -136,8 +136,8 @@ resource "google_container_node_pool" "classifier-staging" {
   network_config {
     create_pod_range = true
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.243.72.0/21"
-    pod_range            = "avantia-infr-stag-gke-wecloud-classfierspod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.classifier_staging_pod_cidr_block
+    pod_range            = var.classifier_staging_cidr_block_name
   }
 
   management {
@@ -148,9 +148,9 @@ resource "google_container_node_pool" "classifier-staging" {
   node_config {
     
     tags = ["classifier-staging"]
-    machine_type = "n1-standard-4"
+    machine_type = var.classifier_staging_n1_machine_type
     guest_accelerator {
-      type = "nvidia-tesla-t4"
+      type = var.classifier_staging_accelerator
       count = 1
       gpu_sharing_config {
         gpu_sharing_strategy = "MPS"
@@ -182,17 +182,17 @@ resource "google_container_node_pool" "servicos" {
   }
   cluster            = var.stg_cluster
   initial_node_count = 1
-  location           = "us-central1-a"
+  location           = var.zone_01_id
   management {
     auto_repair  = true
     auto_upgrade = true
   }
   max_pods_per_node = 20
-  name              = "servicos"
+  name              = var.servicos_name
   network_config {
     enable_private_nodes = true
-    pod_ipv4_cidr_block  = "10.243.24.0/24"
-    pod_range            = "avantia-infr-stg-gke-wecloud-defaultpod-pri-us-ce1-1"
+    pod_ipv4_cidr_block  = var.servicos_pod_cidr_block
+    pod_range            = var.servicos_cidr_block_name
   }
   node_config {
     advanced_machine_features {
@@ -208,7 +208,7 @@ resource "google_container_node_pool" "servicos" {
       application = "servicos"
     }
     logging_variant = "DEFAULT"
-    machine_type    = "e2-medium"
+    machine_type    = var.servicos_e2_machine_type
     metadata = {
       disable-legacy-endpoints = "true"
     }
@@ -222,8 +222,8 @@ resource "google_container_node_pool" "servicos" {
     }
   }
   node_count     = 1
-  node_locations = ["us-central1-a"]
-  project        = "avantia-avanuv-labs"
+  node_locations = [var.zone_01_id]
+  project        = var.service_project_id
   upgrade_settings {
     max_surge = 1
     strategy  = "SURGE"

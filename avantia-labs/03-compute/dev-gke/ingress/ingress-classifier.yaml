@@ -1,0 +1,103 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    konghq.com/https-redirect-status-code: "301"
+    konghq.com/plugins: gelf-graylog-priv-plugin
+    konghq.com/protocols: https
+    konghq.com/strip-path: "false"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt","konghq.com/https-redirect-status-code":"301","konghq.com/protocols":"https","konghq.com/strip-path":"false"},"labels":{"k8slens-edit-resource-version":"v1"},"name":"ingress-classifier","namespace":"classifier"},"spec":{"ingressClassName":"kong","rules":[{"host":"ia.gc.wesafer.com.br","http":{"paths":[{"backend":{"service":{"name":"svc-ia-classifiers-common","port":{"number":80}}},"path":"/classifier/wecloud/common","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-ia-classifiers-gun","port":{"number":8090}}},"path":"/classifier/wecloud/gun","pathType":"ImplementationSpecific"}]}}],"tls":[{"hosts":["staging.ia.wesafer.com.br"],"secretName":"ingress-cert"}]}}
+  creationTimestamp: "2024-11-26T17:31:11Z"
+  generation: 5
+  labels:
+    k8slens-edit-resource-version: v1
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:cert-manager.io/cluster-issuer: {}
+          f:konghq.com/https-redirect-status-code: {}
+          f:konghq.com/protocols: {}
+          f:konghq.com/strip-path: {}
+        f:labels:
+          .: {}
+          f:k8slens-edit-resource-version: {}
+      f:spec:
+        f:ingressClassName: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2024-11-26T17:31:11Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kong-ingress-controller
+    operation: Update
+    subresource: status
+    time: "2024-11-26T17:37:00Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:konghq.com/plugins: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:rules: {}
+        f:tls: {}
+    manager: node-fetch
+    operation: Update
+    time: "2024-12-04T14:00:08Z"
+  name: ingress-classifier
+  namespace: classifier
+  resourceVersion: "17046065"
+  uid: db333582-5773-4e05-8493-e378054ef5dd
+spec:
+  ingressClassName: kong
+  rules:
+  - host: staging.ia.wesafer.com.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: svc-ia-classifiers-common
+            port:
+              number: 80
+        path: /classifier/common
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-ia-classifiers-gun
+            port:
+              number: 80
+        path: /classifier/gun
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-ia-classifiers-common
+            port:
+              number: 80
+        path: /classifier/wecloud/common
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-ia-classifiers-gun
+            port:
+              number: 80
+        path: /classifier/wecloud/gun
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - staging.ia.wesafer.com.br
+    secretName: ingress-cert
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.132.163.192

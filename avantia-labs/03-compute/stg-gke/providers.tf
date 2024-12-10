@@ -17,16 +17,9 @@ locals {
   avantia_service_project   = jsondecode(file("../../../avantia-foundation/local/avantia_service_project.json"))
   avantia_prd_service_project = jsondecode(file("../../../avantia-foundation/local/avantia_prd_service_project.json"))
   lab_shared_vpc    = jsondecode(file("../../../avantia-foundation/local/lab_shared_vpc.json"))
-  #dev_gke_subnets_us_central1-a    = jsondecode(file("../../../avantia-foundation/local/dev_gke_subnets_us_central1-a.json"))
-
-
-
-  #shared_vpcs = jsondecode(file("../../local/shared_vpcs.json"))
-  # output_nat_ip          = jsondecode(file("../local/output_nat_ip.json"))
 }
 
 # Configure the Google Cloud Provider
 provider "google" {
-  region = var.region_id
-  #zone   = var.zone_01_id
+  region = var.zone_01_id
 }

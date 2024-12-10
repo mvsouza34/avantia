@@ -1,0 +1,68 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    konghq.com/https-redirect-status-code: "301"
+    konghq.com/plugins: gelf-graylog-priv-plugin
+    konghq.com/protocols: https
+    konghq.com/strip-path: "false"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt","konghq.com/https-redirect-status-code":"301","konghq.com/plugins":"gelf-graylog-priv-plugin","konghq.com/protocols":"https","konghq.com/strip-path":"false"},"name":"ingress-avanuv","namespace":"avanuv-app-testing"},"spec":{"ingressClassName":"kong","rules":[{"host":"devl.controller.mediastreaming.wesafer.com.br","http":{"paths":[{"backend":{"service":{"name":"svc-service-middlewares-mediastreaming","port":{"number":8090}}},"path":"/","pathType":"ImplementationSpecific"}]}}],"tls":[{"hosts":["devl.controller.mediastreaming.wesafer.com.br"],"secretName":"ingress-cert"}]}}
+  creationTimestamp: "2024-12-04T14:46:37Z"
+  generation: 1
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:cert-manager.io/cluster-issuer: {}
+          f:konghq.com/https-redirect-status-code: {}
+          f:konghq.com/plugins: {}
+          f:konghq.com/protocols: {}
+          f:konghq.com/strip-path: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:ingressClassName: {}
+        f:rules: {}
+        f:tls: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2024-12-04T14:46:37Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kong-ingress-controller
+    operation: Update
+    subresource: status
+    time: "2024-12-04T14:46:38Z"
+  name: ingress-avanuv
+  namespace: avanuv-app-testing
+  resourceVersion: "5729651"
+  uid: 9678ce6a-6ff1-4386-9f81-0957de250ba6
+spec:
+  ingressClassName: kong
+  rules:
+  - host: devl.controller.mediastreaming.wesafer.com.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: svc-service-middlewares-mediastreaming
+            port:
+              number: 8090
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - devl.controller.mediastreaming.wesafer.com.br
+    secretName: ingress-cert
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.238.139.140

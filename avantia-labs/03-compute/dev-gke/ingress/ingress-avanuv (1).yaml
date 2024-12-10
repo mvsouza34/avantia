@@ -1,0 +1,107 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    konghq.com/https-redirect-status-code: "301"
+    konghq.com/plugins: gelf-graylog-priv-plugin
+    konghq.com/protocols: https
+    konghq.com/strip-path: "false"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt","konghq.com/https-redirect-status-code":"301","konghq.com/protocols":"https","konghq.com/strip-path":"false"},"creationTimestamp":"2024-11-26T08:25:37Z","generation":3,"labels":{"k8slens-edit-resource-version":"v1"},"managedFields":[{"apiVersion":"networking.k8s.io/v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:cert-manager.io/cluster-issuer":{},"f:konghq.com/https-redirect-status-code":{},"f:konghq.com/protocols":{},"f:kubectl.kubernetes.io/last-applied-configuration":{}}},"f:spec":{"f:ingressClassName":{},"f:tls":{}}},"manager":"kubectl-client-side-apply","operation":"Update","time":"2024-11-26T08:25:37Z"},{"apiVersion":"networking.k8s.io/v1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{"f:loadBalancer":{"f:ingress":{}}}},"manager":"kong-ingress-controller","operation":"Update","subresource":"status","time":"2024-11-26T08:25:43Z"},{"apiVersion":"networking.k8s.io/v1","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{"f:konghq.com/strip-path":{}},"f:labels":{".":{},"f:k8slens-edit-resource-version":{}}},"f:spec":{"f:rules":{}}},"manager":"node-fetch","operation":"Update","time":"2024-11-26T12:34:55Z"}],"name":"ingress-avanuv","namespace":"avanuv-app-staging","selfLink":"/apis/networking.k8s.io/v1/namespaces/avanuv-app-staging/ingresses/ingress-avanuv","uid":"7da89919-4602-4032-a897-11d89dc22595"},"spec":{"ingressClassName":"kong","rules":[{"host":"controller.stag.gcp.mediastreaming.wesafer.com.br","http":{"paths":[{"backend":{"service":{"name":"svc-service-middlewares-mediastreaming","port":{"number":8090}}},"path":"/","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"svc-mobile-backend","port":{"number":8090}}},"path":"/mobile/","pathType":"ImplementationSpecific"}]}}],"tls":[{"hosts":["controller.stag.gcp.mediastreaming.wesafer.com.br"],"secretName":"ingress-cert"}]}}
+  creationTimestamp: "2024-11-26T08:25:37Z"
+  generation: 6
+  labels:
+    k8slens-edit-resource-version: v1
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:loadBalancer:
+          f:ingress: {}
+    manager: kong-ingress-controller
+    operation: Update
+    subresource: status
+    time: "2024-11-26T08:25:43Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:cert-manager.io/cluster-issuer: {}
+          f:konghq.com/https-redirect-status-code: {}
+          f:konghq.com/protocols: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:ingressClassName: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2024-11-26T17:30:11Z"
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:konghq.com/plugins: {}
+          f:konghq.com/strip-path: {}
+        f:labels:
+          .: {}
+          f:k8slens-edit-resource-version: {}
+      f:spec:
+        f:rules: {}
+        f:tls: {}
+    manager: node-fetch
+    operation: Update
+    time: "2024-12-03T09:03:55Z"
+  name: ingress-avanuv
+  namespace: avanuv-app-staging
+  resourceVersion: "15345408"
+  uid: 7da89919-4602-4032-a897-11d89dc22595
+spec:
+  ingressClassName: kong
+  rules:
+  - host: stag.controller.mediastreaming.wesafer.com.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: svc-service-middlewares-mediastreaming
+            port:
+              number: 8090
+        path: /
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-mobile-backend
+            port:
+              number: 8090
+        path: /mobile/
+        pathType: ImplementationSpecific
+  - host: controller.stag.gcp.mediastreaming.wesafer.com.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: svc-service-middlewares-mediastreaming
+            port:
+              number: 8090
+        path: /
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: svc-mobile-backend
+            port:
+              number: 8090
+        path: /mobile/
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - controller.stag.gcp.mediastreaming.wesafer.com.br
+    - stag.controller.mediastreaming.wesafer.com.br
+    secretName: ingress-cert
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.132.163.192
