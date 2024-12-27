@@ -9,6 +9,10 @@ variable "avantia_network_project_id" {
   description = "The project that contains the networks' settings"
   type = string
 }
+variable "avantia_infra_core_project_id" {
+  description = "Infra Core project ID"
+  type = string
+}
 
 # ################
 # # Envinronment #
@@ -49,6 +53,14 @@ variable "wowza_white_machine_type" {
   description = "The machine type"
   type = string
 }
+variable "agent_amd64_machine_type" {
+  description = "The machine type"
+  type = string
+}
+variable "agent_arm64_machine_type" {
+  description = "The machine type"
+  type = string
+}
 
 ###########################
 # Define the machine name #
@@ -78,6 +90,14 @@ variable "wowza_pink_machine_name" {
   type        = string
 }
 variable "wowza_white_machine_name" {
+  description = "The name of the wowza brown machine"
+  type        = string
+}
+variable "agent_amd64_machine_name" {
+  description = "The name of the wowza brown machine"
+  type        = string
+}
+variable "agent_arm64_machine_name" {
   description = "The name of the wowza brown machine"
   type        = string
 }
@@ -197,6 +217,38 @@ variable "wowza_white_boot_disk_source" {
   description = "The boot disk source"
   type = string
 }
+variable "agent_amd64_attached_disk_name" {
+  description = "The attached disk name"
+  type = string
+}
+variable "agent_amd64_attached_disk_source" {
+  description = "The attached disk source"
+  type = string
+}
+variable "agent_amd64_boot_disk_image" {
+  description = "The boot disk image"
+  type = string
+}
+variable "agent_amd64_boot_disk_source" {
+  description = "The boot disk source"
+  type = string
+}
+variable "agent_arm64_attached_disk_name" {
+  description = "The attached disk name"
+  type = string
+}
+variable "agent_arm64_attached_disk_source" {
+  description = "The attached disk source"
+  type = string
+}
+variable "agent_arm64_boot_disk_image" {
+  description = "The boot disk image"
+  type = string
+}
+variable "agent_arm64_boot_disk_source" {
+  description = "The boot disk source"
+  type = string
+}
 
 ##################################
 # Define the VPC and Subnetworks #
@@ -234,6 +286,14 @@ variable "wowza_pink_subnetwork" {
   type = string
 }
 variable "wowza_white_subnetwork" {
+  description = "The network card type"
+  type = string
+}
+variable "agent_amd64_subnetwork" {
+  description = "The network card type"
+  type = string
+}
+variable "agent_arm64_subnetwork" {
   description = "The network card type"
   type = string
 }
